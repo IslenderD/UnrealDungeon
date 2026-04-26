@@ -8,6 +8,7 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Dungeon.h" 
 #include "CollectableItem.h"
 #include "Lock.h"
@@ -90,8 +91,14 @@ void ADungeonCharacter::Interact()
 			ACollectableItem* CollectableItem = Cast<ACollectableItem>(HitActor);
 			if (CollectableItem) {
 				ItemList.Add(CollectableItem->ItemName);
-
 				CollectableItem->Destroy();
+				if (PickSound) {
+					int randNum1 = rand() % (140 - 60 + 1) + 60;
+					float pitch = randNum1 * 0.01;
+					int randNum2 = rand() % (130 - 100 + 1) + 100;
+					float volume = randNum2 * 0.01;
+					UGameplayStatics::PlaySoundAtLocation(GetWorld(), PickSound, GetActorLocation(), volume, pitch);
+				}
 			}
 		}
 		else if (HitActor->ActorHasTag("Lock")) {

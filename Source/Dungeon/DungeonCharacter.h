@@ -103,5 +103,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	TArray<FString> ItemList;
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* PickSound;
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* MoveSound;
 };
 
