@@ -19,6 +19,7 @@ Content/Audio/
 Content/3DModels/
 Content/Textures/
 Content/Movies/
+Content/Paks/
 
 *.fbx
 *.obj
@@ -33,6 +34,7 @@ Content/Movies/
 **/3DModels/
 **/Movies/
 **/Meshes/
+**/Paks/
 
 Content/StarterContent/
 Content/MedievalDungeon/
